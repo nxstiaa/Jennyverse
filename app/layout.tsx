@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { HornbillIcon, TapirIcon, TurtleIcon } from '../components/AnimalIcons'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,15 +18,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="bg-white shadow-sm">
-          <nav className="container py-4">
-            <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-bold text-primary">Jennyverse</h1>
-              <div className="space-x-4">
-                <a href="/" className="hover:text-primary">Home</a>
-                <a href="/recipes" className="hover:text-primary">Recipes</a>
-                <a href="/categories" className="hover:text-primary">Categories</a>
-              </div>
+        <header className="bg-white border-b">
+          <nav className="container py-4 flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <HornbillIcon className="inline-block align-middle" />
+              <TapirIcon className="inline-block align-middle" />
+              <TurtleIcon className="inline-block align-middle" />
+              <h1 className="text-2xl font-extrabold tracking-tight text-primary font-serif ml-2">Jennyverse</h1>
+            </div>
+            <div className="flex space-x-6 text-base font-medium">
+              <a href="/" className="hover:text-primary transition-colors">Home</a>
+              <a href="/recipes" className="hover:text-primary transition-colors">Recipes</a>
+              <a href="/about" className="hover:text-primary transition-colors">About</a>
+              <a href="/contact" className="hover:text-primary transition-colors">Contact</a>
             </div>
           </nav>
         </header>
