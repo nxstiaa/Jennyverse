@@ -91,20 +91,20 @@ export default function Home() {
         </div>
         {/* Minimalist Carousel arrows */}
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-1 text-black text-2xl border border-gray-200"
+          className="absolute left-2 md:left-4 top-auto md:top-1/2 bottom-20 md:bottom-auto md:-translate-y-1/2 p-3 md:p-1 text-white text-3xl md:text-2xl transition-all duration-200 focus:outline-none"
           onClick={prev}
           aria-label="Previous image"
-          style={{ cursor: `url(${riceCursor}), auto` }}
+          style={{ cursor: `url(${riceCursor}), auto`, background: 'none', border: 'none' }}
         >
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#222" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <svg width="32" height="32" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-1 text-black text-2xl border border-gray-200"
+          className="absolute right-2 md:right-4 top-auto md:top-1/2 bottom-20 md:bottom-auto md:-translate-y-1/2 p-3 md:p-1 text-white text-3xl md:text-2xl transition-all duration-200 focus:outline-none"
           onClick={next}
           aria-label="Next image"
-          style={{ cursor: `url(${riceCursor}), auto` }}
+          style={{ cursor: `url(${riceCursor}), auto`, background: 'none', border: 'none' }}
         >
-          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#222" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <svg width="32" height="32" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         {/* Dots for carousel */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
