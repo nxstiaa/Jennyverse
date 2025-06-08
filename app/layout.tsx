@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,8 +43,10 @@ export default function RootLayout({
         <header className="bg-white border-b w-full">
           <nav className="flex items-center justify-between w-full px-8 py-4">
             <div className="flex items-center space-x-3">
-              <Image src="/tiger_logo.png" alt="Tiger Logo" width={56} height={56} className="object-contain" priority />
-              <span className="text-2xl font-extrabold tracking-tight font-serif" style={{ color: 'var(--logo)' }}>Jennyverse</span>
+              <Link href="/" className="flex items-center space-x-3">
+                <Image src="/tiger_logo.png" alt="Tiger Logo" width={56} height={56} className="object-contain" priority />
+                <span className="text-2xl font-extrabold tracking-tight font-serif" style={{ color: 'var(--logo)' }}>Jennyverse</span>
+              </Link>
             </div>
             <div className="flex space-x-8 text-base font-medium">
               <a href="/" className="hover:text-primary transition-colors">Home</a>
@@ -57,7 +60,7 @@ export default function RootLayout({
         <main className="w-full py-8">
           {children}
         </main>
-        <footer className="bg-dark text-white py-8">
+        <footer className="bg-white text-black py-8 border-t">
           <div className="container">
             <p className="text-center">&copy; {new Date().getFullYear()} Jennyverse. All rights reserved.</p>
           </div>

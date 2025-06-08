@@ -15,8 +15,6 @@ export default function SubmitRecipe() {
   const [steps, setSteps] = useState(['']);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-  const [aiText, setAiText] = useState('');
-  const [aiLoading, setAiLoading] = useState(false);
 
   const correctPassword = 'jennyverse2024'; // Change this to your secret password
 
@@ -54,30 +52,6 @@ export default function SubmitRecipe() {
     setSteps(steps => steps.filter((_, i) => i !== idx));
   }
 
-  async function handleAiExtract(e: React.FormEvent) {
-    e.preventDefault();
-    if (!aiText.trim()) return;
-    setAiLoading(true);
-    setError('');
-    try {
-      const res = await fetch('/api/extract-recipe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: aiText })
-      });
-      if (!res.ok) throw new Error('Failed to extract recipe');
-      const data = await res.json();
-      setTitle(data.title || '');
-      setDescription(data.description || '');
-      setIngredients(data.ingredients || [{ amount: '', unit: '', name: '' }]);
-      setSteps(data.steps || ['']);
-    } catch (err) {
-      setError('AI extraction failed.');
-    } finally {
-      setAiLoading(false);
-    }
-  }
-
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     // Here you would send the recipe to your backend or a service
@@ -108,21 +82,6 @@ export default function SubmitRecipe() {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
           <h2 className="text-2xl font-bold mb-4">Submit a New Recipe</h2>
-
-          {/* AI Extraction Section */}
-          <div>
-            <label className="block font-semibold mb-2">Paste recipe text (optional, powered by AI)</label>
-            <textarea
-              value={aiText}
-              onChange={e => setAiText(e.target.value)}
-              placeholder="Paste a recipe here and click 'Auto-fill with AI'"
-              className="w-full border rounded px-3 py-2 mb-2"
-              rows={3}
-            />
-            <button type="button" className="btn-primary" onClick={handleAiExtract} disabled={aiLoading}>
-              {aiLoading ? 'Extracting...' : 'Auto-fill with AI'}
-            </button>
-          </div>
 
           <input
             type="text"
