@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import Header from '../components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,23 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="bg-white border-b w-full">
-          <nav className="flex items-center justify-between w-full px-8 py-4">
-            <div className="flex items-center space-x-3">
-              <Link href="/" className="flex items-center space-x-3">
-                <Image src="/tiger_logo.png" alt="Tiger Logo" width={56} height={56} className="object-contain" priority />
-                <span className="text-2xl font-extrabold tracking-tight font-serif" style={{ color: 'var(--logo)' }}>Jennyverse</span>
-              </Link>
-            </div>
-            <div className="flex space-x-8 text-base font-medium">
-              <a href="/" className="hover:text-primary transition-colors">Home</a>
-              <a href="/recipes" className="hover:text-primary transition-colors">Recipes</a>
-              <a href="/blog" className="hover:text-primary transition-colors">Blog</a>
-              <a href="/about" className="hover:text-primary transition-colors">About</a>
-              <a href="/contact" className="hover:text-primary transition-colors">Contact</a>
-            </div>
-          </nav>
-        </header>
+        <Header />
         <main className="w-full py-8">
           {children}
         </main>
