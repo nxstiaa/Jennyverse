@@ -77,6 +77,46 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Blog & Favourites Section */}
+      <section className="mt-16">
+        <h2 className="text-3xl font-bold mb-8">Blog & Favourites</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Example blog post 1 */}
+          <div className="card">
+            <div className="relative h-48">
+              <iframe className="w-full h-full rounded-t-xl" src="https://www.youtube.com/embed/1APwq1df6Mw" title="Cooking Video" allowFullScreen></iframe>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-bold mt-2">How to Make Nasi Lemak</h3>
+              <p className="text-gray-600 mt-2">A favourite Malaysian breakfast! Watch this video to learn how to make authentic nasi lemak at home.</p>
+              <a href="https://www.youtube.com/watch?v=1APwq1df6Mw" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block mt-4">Watch on YouTube</a>
+            </div>
+          </div>
+          {/* Example blog post 2 */}
+          <div className="card">
+            <div className="relative h-48">
+              <Image src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" alt="Rendang" fill className="object-cover rounded-t-xl" />
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-bold mt-2">Beef Rendang Recipe</h3>
+              <p className="text-gray-600 mt-2">A repost of a delicious beef rendang recipe from a favourite food blog. Perfect for festive occasions!</p>
+              <a href="https://www.seriouseats.com/beef-rendang-recipe" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block mt-4">Read Recipe</a>
+            </div>
+          </div>
+          {/* Example blog post 3 */}
+          <div className="card">
+            <div className="relative h-48">
+              <iframe className="w-full h-full rounded-t-xl" src="https://www.youtube.com/embed/4aZr5hZXP_s" title="Cooking Video" allowFullScreen></iframe>
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-bold mt-2">Kuih Lapis Tutorial</h3>
+              <p className="text-gray-600 mt-2">Step-by-step video for making colourful kuih lapis, a classic Malaysian dessert.</p>
+              <a href="https://www.youtube.com/watch?v=4aZr5hZXP_s" target="_blank" rel="noopener noreferrer" className="btn-primary inline-block mt-4">Watch on YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 } 
