@@ -8,6 +8,7 @@
   --primary: #38bdf8; /* sky blue */
   --secondary: #bae6fd; /* light sky blue */
   --accent: #0ea5e9; /* deeper sky blue */
+  --logo: #222; /* minimalist neutral for logo */
 }
 
 body {
@@ -23,7 +24,17 @@ body {
   }
   
   .btn-primary {
-    @apply bg-primary text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all;
+    @apply rounded-full px-5 py-2 font-semibold transition-all shadow-sm border;
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    box-shadow: none;
+  }
+  
+  .btn-primary:hover {
+    background: var(--secondary);
+    color: var(--accent);
+    border-color: var(--accent);
   }
   
   .card {

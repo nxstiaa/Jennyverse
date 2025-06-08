@@ -24,7 +24,7 @@ export default function RootLayout({
               <HornbillIcon className="inline-block align-middle" />
               <TapirIcon className="inline-block align-middle" />
               <TurtleIcon className="inline-block align-middle" />
-              <h1 className="text-2xl font-extrabold tracking-tight text-primary font-serif ml-2">Jennyverse</h1>
+              <h1 className="text-2xl font-extrabold tracking-tight font-serif ml-2" style={{ color: 'var(--logo)' }}>Jennyverse</h1>
             </div>
             <div className="flex space-x-6 text-base font-medium">
               <a href="/" className="hover:text-primary transition-colors">Home</a>
