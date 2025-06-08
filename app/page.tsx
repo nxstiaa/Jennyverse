@@ -1,5 +1,7 @@
+"use client";
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const featuredRecipes = [
   {
@@ -25,26 +27,93 @@ const featuredRecipes = [
   },
 ]
 
+const heroImages = [
+  'https://images.unsplash.com/photo-1495521821757-a1efb6729352',
+  'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
+  'https://images.unsplash.com/photo-1513104890138-7c749659a591',
+];
+
+const heroContent = [
+  {
+    title: 'Recipe of the Month',
+    description: 'Try our featured recipe, handpicked for you this month!',
+    button: { text: 'View Recipe', href: '/recipes/recipe-of-the-month' },
+  },
+  {
+    title: 'Most Interesting Recipe',
+    description: 'Discover the most unique and creative recipe in our collection.',
+    button: { text: 'Explore', href: '/recipes/most-interesting' },
+  },
+  {
+    title: 'Blog: All About Okra',
+    description: 'Read our latest blog post on the wonders of okra in Malaysian cuisine.',
+    button: { text: 'Read Blog', href: '/blog/okra' },
+  },
+];
+
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+  const riceCursor = '/rice-cursor.png'; // Place a rice grain PNG in public/
+
+  function prev() {
+    setCurrent((c) => (c === 0 ? heroImages.length - 1 : c - 1));
+  }
+  function next() {
+    setCurrent((c) => (c === heroImages.length - 1 ? 0 : c + 1));
+  }
+
   return (
     <div className="space-y-12">
-      {/* Hero Section */}
-      <section className="relative w-screen min-h-screen flex items-center justify-center overflow-hidden p-0 m-0 max-w-none">
+      {/* Hero Section Carousel */}
+      <section
+        className="relative w-screen min-h-screen flex items-center justify-center overflow-hidden p-0 m-0 max-w-none"
+        style={{ cursor: `url(${riceCursor}), auto` }}
+      >
         <Image
-          src="https://images.unsplash.com/photo-1495521821757-a1efb6729352"
+          src={heroImages[current]}
           alt="Hero image"
           fill
-          className="object-cover"
+          className="object-cover transition-all duration-500"
           priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">Discover Delicious Recipes</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow">Find and share your favorite recipes</p>
-            <Link href="/recipes" className="btn-hero">
-              Browse Recipes
+          <div className="flex flex-col items-center justify-center w-full px-4 md:px-0" style={{maxWidth: 700}}>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight text-center leading-tight">
+              {heroContent[current].title}
+            </h1>
+            <p className="text-base md:text-lg mb-6 text-white text-center max-w-xl leading-relaxed">
+              {heroContent[current].description}
+            </p>
+            <Link href={heroContent[current].button.href} className="btn-hero font-semibold text-base px-6 py-2">
+              {heroContent[current].button.text}
             </Link>
           </div>
+        </div>
+        {/* Minimalist Carousel arrows */}
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-1 text-black text-2xl border border-gray-200"
+          onClick={prev}
+          aria-label="Previous image"
+          style={{ cursor: `url(${riceCursor}), auto` }}
+        >
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#222" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-1 text-black text-2xl border border-gray-200"
+          onClick={next}
+          aria-label="Next image"
+          style={{ cursor: `url(${riceCursor}), auto` }}
+        >
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#222" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+        {/* Dots for carousel */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
+          {heroImages.map((_, i) => (
+            <span
+              key={i}
+              className={`inline-block w-3 h-3 rounded-full ${i === current ? 'bg-white' : 'bg-gray-400 bg-opacity-60'}`}
+            />
+          ))}
         </div>
       </section>
 
