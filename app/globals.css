@@ -25,19 +25,25 @@ body {
   
   .btn-primary {
     @apply rounded-full px-5 py-2 font-semibold transition-all shadow-sm border;
-    background: transparent;
+    background: #fff;
     color: var(--accent);
-    border: 1.5px solid var(--accent);
+    border: 1.5px solid #222;
     box-shadow: none;
   }
   
   .btn-primary:hover {
     background: var(--secondary);
     color: var(--accent);
-    border-color: var(--accent);
+    border-color: #222;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-shadow transition-transform border border-transparent;
+  }
+  
+  .card:hover {
+    @apply shadow-xl;
+    transform: scale(1.025) translateY(-2px);
+    border: 1.5px solid #222;
   }
 } 

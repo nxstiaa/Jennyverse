@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="relative h-[500px] rounded-2xl overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1495521821757-a1efb6729352"
           alt="Hero image"
@@ -39,8 +39,8 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">Discover Delicious Recipes</h1>
-            <p className="text-xl mb-8">Find and share your favorite recipes</p>
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">Discover Delicious Recipes</h1>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow">Find and share your favorite recipes</p>
             <Link href="/recipes" className="btn-primary">
               Browse Recipes
             </Link>
