@@ -123,11 +123,11 @@ export default function Home() {
         )}
         {/* Overlay: bottom left for video, center for others */}
         {heroContent[current].type === 'video' ? (
-          <div className="absolute bottom-10 left-8 md:left-16 z-10 flex flex-col items-start max-w-lg bg-black bg-opacity-40 p-6 rounded-xl">
-            <h1 className="text-2xl md:text-4xl font-bold mb-4 text-white tracking-tight leading-tight">
+          <div className="absolute bottom-4 left-4 md:bottom-10 md:left-16 z-10 flex flex-col items-start max-w-xs sm:max-w-md md:max-w-lg bg-black bg-opacity-40 p-4 md:p-6 rounded-xl">
+            <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold mb-2 md:mb-4 text-white tracking-tight leading-tight">
               {videoMessages[videoMsgIdx]}
             </h1>
-            <Link href={heroContent[current].button.href} className="btn-hero font-semibold text-base px-6 py-2 mt-2">
+            <Link href={heroContent[current].button.href} className="btn-hero font-semibold text-sm md:text-base px-4 md:px-6 py-1.5 md:py-2 mt-1 md:mt-2">
               {heroContent[current].button.text}
             </Link>
           </div>
@@ -150,27 +150,27 @@ export default function Home() {
         )}
         {/* Minimalist Carousel arrows - ensure always visible and above overlays */}
         <button
-          className="absolute left-2 md:left-4 top-auto md:top-1/2 bottom-20 md:bottom-auto md:-translate-y-1/2 p-3 md:p-1 text-white text-3xl md:text-2xl transition-all duration-200 focus:outline-none z-20"
+          className="absolute left-2 md:left-4 top-auto md:top-1/2 bottom-16 md:bottom-auto md:-translate-y-1/2 p-2 md:p-1 text-white transition-all duration-200 focus:outline-none z-20"
           onClick={prev}
           aria-label="Previous image"
           style={{ cursor: `url(${riceCursor}), auto`, background: 'none', border: 'none' }}
         >
-          <svg width="32" height="32" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <svg width="24" height="24" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         <button
-          className="absolute right-2 md:right-4 top-auto md:top-1/2 bottom-20 md:bottom-auto md:-translate-y-1/2 p-3 md:p-1 text-white text-3xl md:text-2xl transition-all duration-200 focus:outline-none z-20"
+          className="absolute right-2 md:right-4 top-auto md:top-1/2 bottom-16 md:bottom-auto md:-translate-y-1/2 p-2 md:p-1 text-white transition-all duration-200 focus:outline-none z-20"
           onClick={next}
           aria-label="Next image"
           style={{ cursor: `url(${riceCursor}), auto`, background: 'none', border: 'none' }}
         >
-          <svg width="32" height="32" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <svg width="24" height="24" className="md:w-7 md:h-7" fill="none" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
         </button>
         {/* Dots for carousel */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+        <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 flex space-x-1.5 md:space-x-2 z-20">
           {heroContent.map((_, i) => (
             <span
               key={i}
-              className={`inline-block w-3 h-3 rounded-full ${i === current ? 'bg-white' : 'bg-gray-400 bg-opacity-60'}`}
+              className={`inline-block w-2 h-2 md:w-3 md:h-3 rounded-full ${i === current ? 'bg-white' : 'bg-gray-400 bg-opacity-60'}`}
             />
           ))}
         </div>
