@@ -114,7 +114,7 @@ export default function Home() {
           </video>
         ) : (
           <Image
-            src={typeof heroContent[current].image === 'string' ? heroContent[current].image : ''}
+            src={heroContent[current].image || 'https://images.unsplash.com/photo-1495521821757-a1efb6729352'}
             alt="Hero image"
             fill
             className="object-cover transition-all duration-500 z-0"
