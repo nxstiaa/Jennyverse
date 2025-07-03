@@ -42,7 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="w-full py-8">
+        <main className="w-full">
           {children}
         </main>
         <footer className="bg-white text-black py-8 border-t">

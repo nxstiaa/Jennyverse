@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap');
+
 :root {
   --foreground-rgb: 34, 34, 34;
   --background-rgb: 255, 255, 255;
@@ -14,6 +16,13 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  background: transparent !important;
 }
 
 @layer components {
@@ -58,4 +67,10 @@ body {
     color: #fff;
     border-color: #fff;
   }
+}
+
+.logo-cartoon {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
 } 
