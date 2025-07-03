@@ -47,7 +47,7 @@ const heroContent = [
     type: 'video',
     title: videoTitle,
     button: { text: 'About Jenny', href: '/about' },
-    video: '/0703.mp4',
+    video: 'https://www.dropbox.com/scl/fi/cifyihqv2bw40fl0xqegi/0703.mp4?rlkey=16yo7r0zudo4h82ymctuzpri2&st=fh99yysd&raw=1',
   },
   {
     type: 'image',

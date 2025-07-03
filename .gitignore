@@ -9,4 +9,6 @@ yarn-error.log*
 package-lock.json
 dist
 out
-coverage 
+coverage
+# Ignore all mp4 video files
+*.mp4 
